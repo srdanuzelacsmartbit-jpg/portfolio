@@ -1,9 +1,12 @@
+"use client";
 import Link from "next/link";
 import Logo from "./Logo";
 import LinkButton from "../LinkButton";
 import { LuDownload } from "react-icons/lu";
+import MobileNavbar from "./MobileNavbar";
+import { useState } from "react";
 
-const navLinks = [
+export const navLinks = [
   { url: "#home", label: "Home" },
   { url: "#services", label: "Services" },
   { url: "#resume", label: "Resume" },
@@ -14,6 +17,8 @@ const navLinks = [
 ];
 
 export default function Navbar() {
+  const [navOpen, setNavOpen] = useState(false);
+
   return (
     <nav className="h-18 fixed z-50 w-full">
       <div
@@ -48,6 +53,7 @@ export default function Navbar() {
             iconPosition="left"
           />
         </div>
+        <MobileNavbar navOpen={navOpen} />
       </div>
     </nav>
   );
