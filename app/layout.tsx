@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/general/navbar/Navbar";
+import HeroSection from "@/components/home/hero/HeroSection";
+import ServiceSection from "@/components/home/services/ServiceSection";
+import ResumeSection from "@/components/resume/ResumeSection";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -23,6 +26,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${roboto.className} antialiased bg-slate-950`}>
         <Navbar />
+        <HeroSection />
+        <ServiceSection />
+        <ResumeSection />
         {children}
       </body>
     </html>
@@ -31,6 +37,12 @@ export default function RootLayout({
 
 /*
 npm install react-icons
+npm install typewriter-effect
 https://www.youtube.com/watch?v=VSlzAvwPODo
-45:00
+
+www.reactbits.dev
+Search for particles background
+npm install ogl
+
+1:36:00
 */

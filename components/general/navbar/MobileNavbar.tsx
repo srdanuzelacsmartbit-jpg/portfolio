@@ -1,18 +1,23 @@
 import Link from "next/link";
 import { navLinks } from "./Navbar";
+import LinkButton from "../LinkButton";
+import { LuDownload } from "react-icons/lu";
 
 interface MobileNavProps {
   navOpen: boolean;
 }
 
 export default function MobileNavbar({ navOpen }: MobileNavProps) {
+  const showMobileNavbar = navOpen ? "translate-x-0" : "translate-x-[100%]";
+
   return (
     <>
       {/* INSET BACKGROUND */}
       <div
         className={`fixed inset-0 transform
         right-0 z-50 bg-black opacity-30 w-full
-        h-screen transition-all duration-500`}
+        h-screen transition-all duration-500 ${showMobileNavbar}
+        lg:hidden`}
       ></div>
       {/* NAV LINKS */}
       <ul
@@ -21,7 +26,8 @@ export default function MobileNavbar({ navOpen }: MobileNavProps) {
         h-full transform transition-all
         duration-500 delay-300 w-[80%] sm:w-[60%]
         bg-slate-800 space-y-1 z-80 right-0
-        top-0`}
+        top-0 ${showMobileNavbar}
+        lg:hidden`}
       >
         {navLinks.map((link) => {
           return (
@@ -40,7 +46,13 @@ export default function MobileNavbar({ navOpen }: MobileNavProps) {
               </Link>
             </li>
           );
-        })}
+        })}{" "}
+        <LinkButton
+          href="/Srdan UZELAC CV.pdf"
+          text="Download CV"
+          icon={LuDownload}
+          iconPosition="left"
+        />
       </ul>
     </>
   );

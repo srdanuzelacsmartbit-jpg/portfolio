@@ -2,9 +2,9 @@
 import Link from "next/link";
 import Logo from "./Logo";
 import LinkButton from "../LinkButton";
-import { LuDownload } from "react-icons/lu";
+import { LuDownload, LuMenu, LuX } from "react-icons/lu";
 import MobileNavbar from "./MobileNavbar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const navLinks = [
   { url: "#home", label: "Home" },
@@ -18,9 +18,25 @@ export const navLinks = [
 
 export default function Navbar() {
   const [navOpen, setNavOpen] = useState(false);
+  const [navBackground, setNavBackground] = useState(false); // Handle scrolling
+
+  // Handles scrolling with listener, changes the background to solid
+  useEffect(() => {
+    const navHandler = () => {
+      if (window.scrollY >= 90) setNavBackground(true);
+      if (window.scrollY < 90) setNavBackground(false);
+    };
+    window.addEventListener("scroll", navHandler);
+    return () => {
+      return window.removeEventListener("scroll", navHandler);
+    };
+  }, []);
 
   return (
-    <nav className="h-18 fixed z-50 w-full">
+    <nav
+      className={`h-18 fixed z-50 w-full transition-all duration-300
+    ${navBackground ? "bg-slate-900 shadow-md" : ""}`}
+    >
       <div
         className="flex items-center h-full justify-between 
 			w-[90%] m-auto"
@@ -46,13 +62,20 @@ export default function Navbar() {
         {/* BUTTON */}
         <div className="hidden lg:block">
           <LinkButton
-            href="/documents/cv.pdf"
+            href="/Srdan UZELAC CV.pdf"
             text="Download CV"
-            download
             icon={LuDownload}
             iconPosition="left"
           />
         </div>
+        {/* MENU BUTTON */}
+        <button
+          onClick={() => setNavOpen(!navOpen)}
+          className="w-8 h-8 cursor-pointer
+        text-white z-100 lg:hidden"
+        >
+          {navOpen ? <LuX size={30} /> : <LuMenu size={30} />}
+        </button>
         <MobileNavbar navOpen={navOpen} />
       </div>
     </nav>
