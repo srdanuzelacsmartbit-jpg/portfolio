@@ -1,14 +1,18 @@
-import { LuAward, LuBookOpen, LuGraduationCap } from "react-icons/lu";
+import {
+  LuAward,
+  LuBookOpen,
+  LuGraduationCap,
+  LuPackage,
+  LuServer,
+} from "react-icons/lu";
 import Header from "../general/Header";
 import ResumeCard from "./ResumeCard";
+import { RiNextjsFill } from "react-icons/ri";
 
 export default function ResumeSection() {
   return (
-    <section id="resume" className="my-12">
-      <div
-        className="w-[90%] mx-auto grid grid-cols-1 
-    xl:grid-cols-2 gap-10"
-      >
+    <section id="resume" className="my-20">
+      <div className="w-[90%] mx-auto grid grid-cols-1 xl:grid-cols-2 gap-10">
         {/* EDUCATION SECTION */}
         <div>
           <Header title="My Education" as="h2" />
@@ -38,8 +42,35 @@ export default function ResumeSection() {
             />
           </div>
         </div>
+        {/* EDUCATION SECTION END */}
         {/* WORK EXPERIENCE */}
-        <Header title="Work Experience" as="h2" />
+        <div>
+          <Header title="My Work Experience" as="h2" />
+          <div className="space-y-6">
+            <ResumeCard
+              icon={RiNextjsFill} // or LuBookMarked, LuFileText
+              role="Frontend Developer"
+              desription="Crafting responsive, accessible interfaces with
+              modern frameworks like React and NextJS. Focus on
+              performance, UX, and pixel-perfect implementation."
+            />{" "}
+            <ResumeCard
+              icon={LuServer} // or LuBookMarked, LuFileText
+              role="Backend Developer"
+              desription="Building scalable APIs, databases and server
+            infrastructure. Experienced with Node.JS, Python, cloud services 
+            and microservices architecture."
+            />
+            <ResumeCard
+              icon={LuPackage} // or LuBookMarked, LuFileText
+              role="Fullstack Developer"
+              desription="End-to-end application development. Bridging
+              frontend interfaces with backend systems for cohesive,
+              full-featured digital solutions."
+            />
+          </div>
+        </div>{" "}
+        {/* WORK EXPERIENCE END */}
       </div>
     </section>
   );

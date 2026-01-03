@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import AnimatedIntro from "./AnimatedIntro";
-import LinkButton from "../../general/LinkButton";
+import LinkButton from "../general/LinkButton";
 import { LuArrowRight } from "react-icons/lu";
 
 export default function HeroSection() {
@@ -14,7 +14,7 @@ export default function HeroSection() {
     >
       <div className="absolute z-10 flex flex-col items-center">
         {/* GLOWING IMAGE */}
-        <div className="w-37.5 h-37.5 relative">
+        <div className="w-60 h-60 relative">
           <div
             className="absolute inset-0 rounded-full bg-linear-to-r
           from-blue-500 to-purple-600 animate-pulse opacity-50 blur-lg"
@@ -27,7 +27,7 @@ export default function HeroSection() {
           />
         </div>
         <h1
-          className="text-center my-6 text-3xl
+          className="text-center my-6 mt-24 text-3xl
         sm:text-4xl md:text-5xl lg:text-6xl font-bold
         tracking-wide bg-clip-text text-transparent bg-linear-to-r
         from-indigo-500 to-gray-300"

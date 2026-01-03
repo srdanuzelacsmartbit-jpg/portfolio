@@ -39,7 +39,7 @@ export default function ResumeCard({
         >
           {role}
         </p>
-        <p className="text-sm sm:text-base mt-3 text-gray-300 tracking-wide">
+        <p className="text-sm sm:text-base mt-3 text-gray-400 tracking-wide">
           {desription}
         </p>
       </div>
