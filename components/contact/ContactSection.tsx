@@ -1,0 +1,80 @@
+import { FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { FaPhone } from "react-icons/fa6";
+import Link from "next/link";
+
+const contactInfo = [
+  {
+    icon: <FaEnvelope className="w-6 h-6" />,
+    title: "Email",
+    value: "contact@john.dev",
+    link: "mailto:contact@john.dev",
+  },
+  {
+    icon: <FaPhone className="w-6 h-6" />,
+    title: "Phone",
+    value: "+1 (234) 567-890",
+    link: "tel:+1234567890",
+  },
+  {
+    icon: <FaMapMarkerAlt className="w-6 h-6" />,
+    title: "Location",
+    value: "Remote Global",
+    link: "#",
+  },
+];
+
+export default function ContactSection() {
+  return (
+    <section id="contact" className="py-16">
+      <div className="w-[90%] md:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12">
+        {/* LEFT SIDE */}
+        <div>
+          <h2
+            className="py-3 text-3xl md:text-4xl font-bold tracking-wide text-transparent bg-clip-text 
+            bg-linear-to-r from-indigo-500 to-gray-300"
+          >
+            Ready to Collaborate?
+          </h2>
+          <p className="text-gray-400 mb-10 text-base lg:text-lg leading-relaxed">
+            I&apos;m currently available for freelance work and full-time
+            opportunities. Whether you have a project in mind or just want to
+            connect, feel free to reach out.
+          </p>
+          <div className="space-y-5 mb-12">
+            {contactInfo.map((item, index) => {
+              return (
+                <Link
+                  href={item.link}
+                  key={index}
+                  className="
+              group flex items-center gap-4 px-2 py-3 transition-colors hover:bg-white/5
+              rounded-lg"
+                >
+                  <div
+                    className="h-15 w-15 rounded-full bg-white/5 text-white
+                  transition-transform group-hover:scale-105 grid place-items-center"
+                  >
+                    {item.icon}
+                  </div>
+                  <div>
+                    <h4 className="text-md font-medium text-white">
+                      {item.title}
+                    </h4>
+                    <p className="text-md text-gray-400">{item.value}</p>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+        {/* RIGHT SIDE - FORM */}
+        <div>
+          <form className="rounded-lg bg-slate-900 px-4 py-8">
+            <input type="text" placeholder="Your Name" className="px-4 py-3.5 my-4 bg-slate-800 outline-none
+            rounded-md w-full text-gray-200 placeholder-gray-400" />
+          </form>
+        </div>
+      </div>
+    </section>
+  );
+}

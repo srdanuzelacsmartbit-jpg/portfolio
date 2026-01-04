@@ -7,6 +7,8 @@ import ServiceSection from "@/components/services/ServiceSection";
 import ResumeSection from "@/components/resume/ResumeSection";
 import ProjectsSection from "@/components/projects/ProjectsSection";
 import SkillsSection from "@/components/skills/SkillsSection";
+import TestimonialsSection from "@/components/testimonials/TestimonialsSection";
+import ContactSection from "@/components/contact/ContactSection";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -33,6 +35,8 @@ export default function RootLayout({
         <ResumeSection />
         <ProjectsSection />
         <SkillsSection />
+        <TestimonialsSection />
+        <ContactSection />
         {children}
       </body>
     </html>
@@ -51,5 +55,5 @@ www.reactbits.dev
 Search for particles background
 npm install ogl // Cestice
 
-1:51:00
+2:00:00
 */

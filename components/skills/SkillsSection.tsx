@@ -3,6 +3,7 @@ import Header from "../general/Header";
 import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
 import { FaNodeJs } from "react-icons/fa";
 import { SiTypescript } from "react-icons/si";
+import { BiLogoTypescript } from "react-icons/bi";
 
 const skills = [
   {
@@ -11,22 +12,27 @@ const skills = [
     skillLevel: 85,
   },
   {
-    name: "ReactJS",
+    name: "React JS",
     icon: <DiReact />,
     skillLevel: 95,
   },
   {
-    name: "NextJS",
+    name: "Next JS",
     icon: <RiNextjsFill />,
     skillLevel: 90,
   },
   {
-    name: "NodeJS",
+    name: "Node JS",
     icon: <FaNodeJs />,
     skillLevel: 80,
   },
+    {
+    name: "TypeScript",
+    icon: <BiLogoTypescript />,
+    skillLevel: 75,
+  },
   {
-    name: "TailwindCSS",
+    name: "Tailwind CSS",
     icon: <RiTailwindCssFill />,
     skillLevel: 90,
   },
@@ -36,7 +42,7 @@ export default function SkillsSection() {
   return (
     <section id="skills" className="py-16">
       <Header title="My Skills" />
-      <div className="flex flex-1 justify-center gap-6">
+      <div className="flex flex-wrap justify-center gap-6">
         {skills.map((skill, index) => (
           <div
             key={index}
@@ -45,7 +51,7 @@ export default function SkillsSection() {
           >
             <div className="text-5xl text-gray-300">{skill.icon}</div>
             <p className="text-2xl font-semibold my-3 text-gray-200">
-              {skill.skillLevel} %
+              {skill.skillLevel}%
             </p>
             <p className="font-semibold text-indigo-500">{skill.name}</p>
           </div>
