@@ -1,7 +1,10 @@
+"use client";
 import { DiVim } from "react-icons/di";
 import Header from "../general/Header";
 import { FaStar } from "react-icons/fa";
 import Image from "next/image";
+import { LuCar } from "react-icons/lu";
+import ResizableButton from "../general/ResizableButton";
 
 const testimonials = [
   {

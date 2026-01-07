@@ -2,13 +2,7 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/general/navbar/Navbar";
-import HeroSection from "@/components/hero/HeroSection";
-import ServiceSection from "@/components/services/ServiceSection";
-import ResumeSection from "@/components/resume/ResumeSection";
-import ProjectsSection from "@/components/projects/ProjectsSection";
-import SkillsSection from "@/components/skills/SkillsSection";
-import TestimonialsSection from "@/components/testimonials/TestimonialsSection";
-import ContactSection from "@/components/contact/ContactSection";
+import Footer from "@/components/general/Footer";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -30,14 +24,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${roboto.className} antialiased bg-slate-950`}>
         <Navbar />
-        <HeroSection />
-        <ServiceSection />
-        <ResumeSection />
-        <ProjectsSection />
-        <SkillsSection />
-        <TestimonialsSection />
-        <ContactSection />
+        {/* THIS GOEST TO page.tsx !!! */}
+
         {children}
+        <Footer />
       </body>
     </html>
   );
@@ -55,5 +45,8 @@ www.reactbits.dev
 Search for particles background
 npm install ogl // Cestice
 
-2:09:00
+https://aos-animate.vercel.app
+npm install aos
+
+2:25:00
 */
