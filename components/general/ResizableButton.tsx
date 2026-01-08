@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaTruck } from "react-icons/fa";
+import Vehicles from "@/public/Vehicles";
 
 export default function ResizableButton() {
   // State to manage the current size (e.g., 'small' or 'large')
@@ -10,17 +10,23 @@ export default function ResizableButton() {
     setSize(size === "small" ? "large" : "small");
   };
 
+  const vehicles = <Vehicles
+                width={58}
+                height={58}
+                className="text-green-500"
+                variant="van"
+              />
+
   return (
-    <div className="absolute mx-10">
+    <div className="absolute">
       <button onClick={handleClick}>
         {size === "small" ? (
           <div className="flex justify-center mx-auto mt-10">
             <div
               className="flex relative w-20 h-20 border-2 border-gray-500 rounded-2xl items-center
-              justify-center bg-white cursor-pointer"
+              justify-center bg-white cursor-pointer p-2"
             >
-              <FaTruck className="text-5xl fill-green-500" />
-              {/* <FaTruck className="text-5xl fill-red-500" /> */}
+              {vehicles}
               {/* TROUGAO */}
               <div className="absolute -bottom-4.5 left-1/2 transform -translate-x-1/2">
                 <div
@@ -37,25 +43,21 @@ export default function ResizableButton() {
             rounded-2xl bg-white border-gray-500 border-2"
             >
               {/* TOVARNA LISTA */}
-              <div className="relative justify-between text-left p-5">
-                <p className="">Tovarna Lista:</p>
-                <ul className="max-h-40 text-lg px-2 overflow-auto">
-                  <li>Item 1</li>
-                  <li>Item 2</li>
-                  <li>Item 3</li>
-                  <li>Item 4</li>
-                  <li>Item 5</li>
-                  <li>Item 6</li>
-                  <li>Item 7</li>
+              <div className="relative justify-between text-left p-3">
+                <ul className="max-h-53 text-xl overflow-auto">
+                  {Array.from({ length: 20 }, (_, i) => (
+                    <li key={i} className="">
+                      Item {i++}
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
             <div
               className="flex relative w-78 h-20 border-2 border-gray-500 rounded-2xl items-center
-       bg-white cursor-pointer justify-between pl-[14.5px] pr-7"
+       bg-white cursor-pointer justify-between pl-[9.5px] pr-7"
             >
-              {/* <FaTruck className=" text-5xl fill-red-500" /> */}
-              <FaTruck className=" text-5xl fill-green-500" />
+              {vehicles}
               <div className="flex-1 flex-col text-xl text-gray-600">
                 <p>Kola br 1.</p>
                 <p>BG-123-456</p>
